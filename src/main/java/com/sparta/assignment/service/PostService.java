@@ -12,7 +12,6 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -20,6 +19,7 @@ public class PostService {
 
     private final PostRepository postRepository;
 
+    //게시글 생성
     @Transactional
     public Post create(PostRequestDto requestDto) {
         Post post = new Post(requestDto);
@@ -27,16 +27,7 @@ public class PostService {
         return post;
     }
 
-//    @Transactional
-//    public List<Post> readAll() {
-//        return postRepository.findAllByOrderByModifiedAtDesc();
-////        return postList.stream()
-////                .map(p -> new GetReponseDto(
-////                        p.getTitle(),
-////                        p.getUsername()))
-////                .collect(Collectors.toList());
-//    }
-
+    //게시글 전체 조회. stream().map() 사용하려다 실패하고 해당 방식 사용.
     @Transactional
     public List<GetResponseDto> getResponseDtoList() {
         List<Post> postList = postRepository.findAllByOrderByModifiedAtDesc();
@@ -49,11 +40,13 @@ public class PostService {
         return getResponseDtoList;
     }
 
+    //게시글 상세 조회. 입력받은 Id값과 일치하는 것만 조회
     @Transactional
     public Optional<Post> readOne(@PathVariable Long id) {
         return postRepository.findById(id);
     }
 
+    //게시글 수정. 생성시 입력했던 비밀번호와 일치해야만 수정 가능
     @Transactional
     public Boolean update(Long id, PostRequestDto requestDto) {
         Post post = postRepository.findById(id).orElseThrow(
@@ -69,6 +62,7 @@ public class PostService {
         }
     }
 
+    //게시글 삭제. 생성시 입력했던 비밀번호와 일치해야만 삭제 가능
     @Transactional
     public Boolean delete(@PathVariable Long id, PostRequestDto requestDto) {
         Post post = postRepository.findById(id).orElseThrow(
@@ -83,6 +77,4 @@ public class PostService {
             return false;
         }
     }
-
-
 }

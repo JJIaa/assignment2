@@ -10,6 +10,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+//생성시간 및 마지막 수정 시간
 @Getter
 @Setter
 @MappedSuperclass
