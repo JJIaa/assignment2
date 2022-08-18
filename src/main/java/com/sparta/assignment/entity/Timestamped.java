@@ -1,4 +1,4 @@
-package com.sparta.assignment.entity;
+package com.sparta.assignment.entity; 
 
 import lombok.Getter;
 import lombok.Setter;
