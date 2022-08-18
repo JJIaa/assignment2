@@ -1,4 +1,4 @@
-package com.sparta.assignment.dto;
+package com.sparta.assignment.dto; 
 
 import lombok.Getter;
 
