@@ -1,4 +1,4 @@
-package com.sparta.assignment.controller;
+package com.sparta.assignment.controller; 
 
 
 import com.sparta.assignment.dto.GetResponseDto;
