@@ -1,4 +1,4 @@
-package com.sparta.assignment.dto;
+package com.sparta.assignment.dto; 
 
 
 import com.sparta.assignment.entity.Post;
