@@ -1,4 +1,4 @@
-package com.sparta.assignment.entity;
+package com.sparta.assignment.entity; 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sparta.assignment.dto.GetResponseDto;
